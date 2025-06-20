@@ -1,0 +1,33 @@
+<!-- templates/catalog.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог</title>
+</head>
+<body>
+  <h1>Каталог одежды</h1>
+  <div id="clothes-list"></div>
+
+  <script>
+    fetch('/api/clothes/')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('clothes-list');
+        data.results.forEach(item => {
+          const el = document.createElement('div');
+          el.innerHTML = `
+            <h3>${item.name}</h3>
+            <img src="${item.photo}" width="150"><br>
+            <p>${item.description}</p>
+            <p>Цвет: ${item.colour}</p>
+            <p>Размер: ${item.min_size}</p>
+            <p>Цена: ${item.price} ₽</p>
+            <hr>
+          `;
+          list.appendChild(el);
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рубиновая Груша — Магазин косметики</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #fff6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #d6336c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+        }
+
+        nav {
+            background-color: #f8d7da;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        .banner {
+            background-image: url('https://images.unsplash.com/photo-1616101341644-d998dfbdbb98'); /* можно заменить на свою */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 1px 1px 4px black;
+        }
+
+        .banner h2 {
+            font-size: 2.5em;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 15px 0 5px;
+        }
+
+        .product-card p {
+            color: #888;
+        }
+
+        footer {
+            background-color: #d6336c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav>
+    <a href="#">Главная</a>
+    <a href="#">Каталог</a>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+</nav>
+
+<div class="banner">
+    <h2>Весенние новинки уже здесь!</h2>
+</div>
+
+<section class="products">
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1611078489935-2ca4f71c4b6f" alt="Крем для лица">
+        <h3>Увлажняющий крем</h3>
+        <p>1 200 ₽</p>
+    </div>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1612804891054-84217308a09e" alt="Губная помада">
+        <h3>Губная помада Ruby Red</h3>
+        <p>850 ₽</p>
+    </div>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1620302812640-8b5731004c57" alt="Тональная основа">
+        <h3>Тональная основа</h3>
+        <p>1 500 ₽</p>
+    </div>
+</section>
+
+</body>
+</html>

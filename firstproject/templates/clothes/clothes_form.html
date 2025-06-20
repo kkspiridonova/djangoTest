@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static%}
+
+{% block title_name%}
+    Создание продукта
+{% endblock %}
+
+{% block content%}
+<h1>{% if form.instance.pk %} Редактирвоать позицию {%else%} Добавить новую позицию  {%endif%}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'clothes_list' %}"> Вернуться к списку</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Ваша корзина</h1>
+
+{% if basket|length == 0 %}
+    <p>Ваша корзина пуста.</p>
+{% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in basket %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.price }} ₽</td>
+                    <td>{{ item.count }}</td>
+                    <td>{{ item.total_price }} ₽</td>
+                    <td>
+                        <form action="{% url 'basket_remove' item.product.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Общая сумма: {{ basket.get_total_price }} ₽</h3>
+
+    <a href="{% url 'order_open' %}">Оформить заказ</a>
+    <form action="{% url 'basket_clear' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Очистить корзину</button>
+    </form>
+{% endif %}
+{% endblock %}
